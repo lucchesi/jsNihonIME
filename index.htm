@@ -1,0 +1,70 @@
+<!-- Defining the size of the buttons and of the div that will hold them -->
+<style type="text/css"> #divbuttons{width: 520px;} .btn {width: 28px;} </style>
+
+<h1>jsNIhonIME - Javascript Japanese Input</h1>
+<b>Type</b> inside the text box and the roman characters will be replaced by 
+their correspondent <i>kana</i>.<br />
+You may use <b>lower case</b> for <b>hiragana</b> and <b>lower case</b> for 
+<b>katakana</b>.<br />
+
+<br />
+Some characters are accepted by using more than one romanization:
+<ul>
+	<li>&#12375;, shi, also accepted as [si]</li>
+	<li>&#12376;, ji, also accepted as [zi]</li>
+	<li>&#12386;, 'ji, also accepted as [di]</li>
+	<li>&#12389;, 'zu, also accepted as [du]</li>
+	<li>&#12435;, n, is detected as you type <i>n</i> followed by a consonant, 
+or at the end of a word (space). Another option is to use'n, n', ñ or ç.</li>
+	<li>&#12387;, little tsu(shows a double consonant), is detected as you type 
+<i>t</i> followed by a consonant, or if you repeat a consonant.</li>
+</ul>
+The same goes for their katakana counterparts.<br />
+<br />
+It is also possible to type some punctuation, that will be replaced by their 
+<i>full-width</i> equivalents.<br />
+<br />
+I also implemented <b>buttons</b> as a way to input <b>hiragana</b>, 
+<b>katakana</b> and each level of the <b>jouyou kanji</b>.<br />
+If you keep your cursor over each button, its meaning and readings(japanese, 
+<i>kun-yomi</i>, and chinese, <i>on-yomi</i>) will appear.<br />
+<br />
+
+
+<!-- JavaScript code that does all the work -->
+<script type="text/JavaScript" src="jsNihonIME.js"></script>
+
+<!-- Combobox to select the buttons -->
+<select name="chars" size="1" onchange="changebuttons(this);">
+	<option>Hiragana</option>
+	<option>Katakana</option>
+	<option>Jouyou Kanji - 1</option>
+	<option>Jouyou Kanji - 2</option>
+	<option>Jouyou Kanji - 3</option>
+	<option>Jouyou Kanji - 4</option>
+	<option>Jouyou Kanji - 5</option>
+	<option>Jouyou Kanji - 6</option>
+	<option>Jouyou Kanji - 7</option>
+	<option>No buttons</option>
+</select><br />
+
+<!-- div that will hold the buttons -->
+<div id="divbuttons"></div>
+
+<!-- Textarea -->
+<textarea id="k_textarea" rows="12" cols="60"  onkeydown="javascript:replacekana();" onkeyup="javascript:replacekana();"></textarea><br />
+
+In order to save the text, you only have to copy it to a text editor with a font
+that supports Unicode(i.e Arial Unicode).<br />
+<br />
+
+If you liked this virtual keyboard, feel free to copy it.
+This is free software under the <a href="http://creativecommons.org/licenses/MIT/deed.en">MIT LICENCE</a>.<br />
+<br />
+
+TODO:
+<ul>
+	<li>Divide the levels that have too many kanji</li>
+	<li>Avoid the cursor position change while replacing symbols</li>
+	<li>Insert the button's symbols after the cursor's position, not at the end of the text</li>
+</ul>
